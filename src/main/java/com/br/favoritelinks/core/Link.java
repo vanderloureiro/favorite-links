@@ -23,4 +23,8 @@ class Link {
 
     @Column(nullable = false)
     private String link;
+
+    @ManyToOne
+    @JoinColumn(nullable = false, name = "group_id")
+    private Group group;
 }

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -20,4 +21,7 @@ class Group {
 
     @Column(nullable = false)
     private String name;
+
+    @OneToMany(mappedBy = "group")
+    private List<Link> links;
 }
