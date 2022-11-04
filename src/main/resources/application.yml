@@ -1,6 +1,6 @@
 spring:
   application:
-    name: advertisement-core
+    name: favoritelinks
   datasource:
     url: jdbc:postgresql://localhost:5432/db_favorite_links
     username: postgres
@@ -17,4 +17,4 @@ springdoc:
     path: /api-docs
 
 server:
-  port: 8080
+  port: 8081
