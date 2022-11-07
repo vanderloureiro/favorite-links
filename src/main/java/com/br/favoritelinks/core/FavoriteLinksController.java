@@ -4,6 +4,7 @@ import com.br.favoritelinks.core.record.GroupDto;
 import com.br.favoritelinks.core.record.GroupForm;
 import com.br.favoritelinks.core.record.LinkDto;
 import com.br.favoritelinks.core.record.LinkForm;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,9 @@ import java.util.stream.Collectors;
 
 @RestController
 public class FavoriteLinksController {
+
+    @Value("${config.environment}")
+    private String environment;
 
     private final GroupRepository groupRepository;
     private final LinkRepository linkRepository;
@@ -62,6 +66,12 @@ public class FavoriteLinksController {
                     return new LinkDto(link.getId(), link.getDescription(), link.getLink(), link.getGroup().getId());
                 }).collect(Collectors.toList());
         return ResponseEntity.ok(links);
+    }
+
+    @GetMapping("/environment")
+    public ResponseEntity<String> getEnvironment() {
+
+        return ResponseEntity.ok(environment);
     }
 
 }
