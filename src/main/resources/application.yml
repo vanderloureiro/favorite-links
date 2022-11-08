@@ -1,6 +1,8 @@
 spring:
   application:
     name: favoritelinks
+  profiles:
+    active: prod
   datasource:
     url: jdbc:postgresql://localhost:5432/db_favorite_links
     username: postgres
